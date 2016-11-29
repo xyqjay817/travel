@@ -1,0 +1,6 @@
+require(['$'],
+    function($) {
+
+        console.log($)
+    }
+)
