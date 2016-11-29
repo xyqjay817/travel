@@ -8,6 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class FreeMarkerConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/system/admin/**");
+        registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/**");
     }
 }
