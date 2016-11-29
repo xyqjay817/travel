@@ -1,6 +1,0 @@
-require(['$'],
-    function($) {
-
-        console.log($)
-    }
-)
