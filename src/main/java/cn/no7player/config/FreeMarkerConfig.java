@@ -1,4 +1,4 @@
-package no7player.config;
+package cn.no7player.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

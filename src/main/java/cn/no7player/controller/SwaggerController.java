@@ -1,4 +1,4 @@
-package no7player.controller;
+package cn.no7player.controller;
 
 import cn.no7player.model.User;
 import com.wordnik.swagger.annotations.ApiOperation;

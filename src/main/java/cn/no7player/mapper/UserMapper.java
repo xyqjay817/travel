@@ -1,4 +1,4 @@
-package no7player.mapper;
+package cn.no7player.mapper;
 
 import cn.no7player.model.User;
 

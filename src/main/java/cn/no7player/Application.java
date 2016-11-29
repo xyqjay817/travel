@@ -1,4 +1,4 @@
-package no7player;
+package cn.no7player;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;

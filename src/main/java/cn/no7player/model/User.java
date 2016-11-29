@@ -1,4 +1,4 @@
-package no7player.model;
+package cn.no7player.model;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package no7player.config;
+package cn.no7player.config;
 
 /**
  * Created by Faith on 2016/11/28.

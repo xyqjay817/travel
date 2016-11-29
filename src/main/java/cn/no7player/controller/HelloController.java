@@ -1,4 +1,4 @@
-package no7player.controller;
+package cn.no7player.controller;
 
 import cn.no7player.config.FreeMarkerConfig;
 import org.springframework.beans.factory.annotation.Autowired;
