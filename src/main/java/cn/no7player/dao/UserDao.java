@@ -15,4 +15,8 @@ public class UserDao extends BaseDao{
     public List<User> list(){
         return sqlSession.selectList("USER.list");
     }
+
+    public User findByName(String name){
+        return sqlSession.selectOne("USER.findByName",name);
+    };
 }

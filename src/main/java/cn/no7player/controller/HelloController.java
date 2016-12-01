@@ -23,7 +23,7 @@ public class HelloController   {
     public String greeting(HttpServletRequest request) {
 
         Page<User>page=PageHelper.startPage(2,3);
-        long total=page.getEndRow();
+        long total=page.getPages();
         userService.list();
         request.setAttribute("str","123456789");
         return "index";
