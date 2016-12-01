@@ -2,6 +2,7 @@ package cn.no7player.controller;
 
 import cn.no7player.model.User;
 import cn.no7player.service.UserService;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +22,9 @@ public class HelloController   {
     @RequestMapping("/hello")
     public String greeting(HttpServletRequest request) {
 
-//        PageHelper.startPage(1,3);
-        List<User> users=userService.list();
-        User user=userService.getUserInfo();
+        Page<User>page=PageHelper.startPage(2,3);
+        long total=page.getEndRow();
+        userService.list();
         request.setAttribute("str","123456789");
         return "index";
     }

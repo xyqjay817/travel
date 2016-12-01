@@ -1,11 +1,10 @@
 package cn.no7player.service;
 
-import cn.no7player.mapper.UserMapper;
+import cn.no7player.dao.UserDao;
 import cn.no7player.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.activation.DataSource;
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -15,19 +14,13 @@ import java.util.List;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserMapper userMapper;
 
+    @Resource(name = "userDao")
+    private UserDao userDao;
 
-
-    public User getUserInfo(){
-        User user=userMapper.findUserInfo();
-        //User user=null;
-        return user;
-    }
 
     public  List<User>list(){
-        return userMapper.list();
+        return userDao.list();
     }
 
 }

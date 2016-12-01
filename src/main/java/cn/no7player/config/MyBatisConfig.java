@@ -64,4 +64,10 @@ public class MyBatisConfig {
     }
 
 
+    @Bean
+    public SqlSessionTemplate sqlSession() throws Exception {
+        return new SqlSessionTemplate(sqlSessionFactoryBean());
+    }
+
+
 }
