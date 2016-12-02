@@ -52,12 +52,12 @@ public class MyShiroRealm extends AuthorizingRealm{
             //权限信息对象info,用来存放查出的用户的所有的角色（role）及权限（permission）
             SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
             //用户的角色集合
-            info.setRoles(user.getRolesName());
+//            info.setRoles(user.getRolesName());
             //用户的角色对应的所有权限，如果只使用角色定义访问权限，下面的四行可以不要
-            List<Role> roleList=user.getRoleList();
-            for (Role role : roleList) {
-                info.addStringPermissions(role.getPermissionsName());
-            }
+//            List<Role> roleList=user.getRoleList();
+//            for (Role role : roleList) {
+//                info.addStringPermissions(role.getPermissionsName());
+//            }
             // 或者按下面这样添加
             //添加一个角色,不是配置意义上的添加,而是证明该用户拥有admin角色
 //            simpleAuthorInfo.addRole("admin");
@@ -80,12 +80,11 @@ public class MyShiroRealm extends AuthorizingRealm{
         UsernamePasswordToken token=(UsernamePasswordToken) authenticationToken;
 
         logger.info("验证当前Subject时获取到token为：" + token);
-
         //查出是否有此用户
         User user=userDao.findByName(token.getUsername());
         if(user!=null){
             // 若存在，将此用户存放到登录认证info中，无需自己做密码对比，Shiro会为我们进行密码对比校验
-            return new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), getName());
+            return new SimpleAuthenticationInfo(user.getUserName(), user.getPassword(), getName());
         }
         return null;
     }

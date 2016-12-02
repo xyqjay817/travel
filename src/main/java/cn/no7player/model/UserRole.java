@@ -7,16 +7,13 @@ import lombok.Data;
 
 
 /**
- * 权限（增删改查等）
- *
+ * Created by Faith on 2016/12/2.
  */
-@TableName(name = "permission")
 @Data
-public class Permission extends Po{
-    @FieldName(name = "PERMISSION_NAME")
-    private String permissionName;
+@TableName(name = "user_role")
+public class UserRole extends Po{
+    @FieldName(name = "USER_ID")
+    private Integer userId;
     @FieldName(name = "ROLE_ID")
     private Integer roleId;
-
-
 }

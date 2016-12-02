@@ -3,6 +3,8 @@ package cn.no7player.controller;
 import cn.no7player.dao.UserDao;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,9 +42,8 @@ public class ShiroController {
         if(bindingResult.hasErrors()){
             return "login";
         }
-
         String username = user.getName();
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getName(), user.getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getName(),new Md5Hash( user.getPassword(),user.getName()).toString());
         //获取当前的Subject
         Subject currentUser = SecurityUtils.getSubject();
         try {

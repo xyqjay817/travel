@@ -8,24 +8,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 public class HelloController   {
 
 
-    @Autowired
+    @Resource(name = "userService")
     private UserService userService;
 
 
-    @RequestMapping("/hello")
+    @RequestMapping("/home")
     public String greeting(HttpServletRequest request) {
 
-        Page<User>page=PageHelper.startPage(2,3);
-        long total=page.getPages();
-        userService.list();
-        request.setAttribute("str","123456789");
+        User user=new User();
+        user.setPassword("123456");
+        user.setUserName("dengrijin");
+        userService.add(user);
         return "index";
     }
 }

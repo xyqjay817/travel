@@ -5,8 +5,8 @@
 
 <body>
 <h1>登录页面----</h1>
-<form action="/login"  method="post">
-    用户名：<input  name="username" />
+<form action="/login" name="user" method="post">
+    用户名：<input  name="name" />
     <br />
     密码：<input type="password" name="password"  />
     <br />
