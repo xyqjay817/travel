@@ -1,65 +1,64 @@
+/*
+Navicat MySQL Data Transfer
 
+Source Server         : localhost_3306
+Source Server Version : 50624
+Source Host           : localhost:3306
+Source Database       : faith
 
+Target Server Type    : MYSQL
+Target Server Version : 50624
+File Encoding         : 65001
 
+Date: 2016-12-02 15:54:57
+*/
 
-/*Table structure for table `t_permission` */
+SET FOREIGN_KEY_CHECKS=0;
 
-DROP TABLE IF EXISTS `t_permission`;
+-- ----------------------------
+-- Table structure for permission
+-- ----------------------------
+DROP TABLE IF EXISTS `permission`;
+CREATE TABLE `permission` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PERMISSION_NAME` varchar(32) DEFAULT NULL COMMENT '权限名',
+  `ROLE_ID` int(11) DEFAULT NULL COMMENT '角色ID',
+  `AVAILABLE` char(1) DEFAULT NULL COMMENT '是否删除 0:删除 1：正常',
+  PRIMARY KEY (`ID`),
+  KEY `id` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='权限表';
 
-CREATE TABLE `t_permission` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `permissionname` varchar(32) DEFAULT NULL,
-  `role_id` int(11) DEFAULT NULL,
-  KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+-- ----------------------------
+-- Table structure for role
+-- ----------------------------
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE `role` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ROLE_NAME` varchar(32) DEFAULT NULL COMMENT '角色名称',
+  `AVAILABLE` char(1) DEFAULT NULL COMMENT '是否删除 0：删除  1：正常',
+  PRIMARY KEY (`ID`),
+  KEY `id` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='角色表';
 
-/*Data for the table `t_permission` */
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `USER_NAME` varchar(32) DEFAULT NULL COMMENT '用户名',
+  `PASSWORD` varchar(32) DEFAULT NULL COMMENT '密码',
+  `AVAILABLE` char(1) DEFAULT NULL COMMENT '是否删除 0：删除  1：正常',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
-insert  into `t_permission`(`id`,`permissionname`,`role_id`) values (1,'add',2),(2,'del',1),(3,'update',2),(4,'query',3),(5,'user:query',1),(6,'user:edit',2);
-
-/*Table structure for table `t_role` */
-
-DROP TABLE IF EXISTS `t_role`;
-
-CREATE TABLE `t_role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rolename` varchar(32) DEFAULT NULL,
-  KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
-/*Data for the table `t_role` */
-
-insert  into `t_role`(`id`,`rolename`) values (1,'admin'),(2,'manager'),(3,'normal');
-
-/*Table structure for table `t_user` */
-
-DROP TABLE IF EXISTS `t_user`;
-
-CREATE TABLE `t_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(32) DEFAULT NULL,
-  `password` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
-/*Data for the table `t_user` */
-
-insert  into `t_user`(`id`,`username`,`password`) values (1,'tom','123456'),(2,'jack','123456'),(3,'rose','123456');
-
-/*Table structure for table `t_user_role` */
-
-DROP TABLE IF EXISTS `t_user_role`;
-
-CREATE TABLE `t_user_role` (
-  `user_id` int(11) DEFAULT NULL,
-  `role_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `t_user_role` */
-
-insert  into `t_user_role`(`user_id`,`role_id`) values (1,1),(1,3),(2,2),(2,3),(3,3);
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+-- ----------------------------
+-- Table structure for user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE `user_role` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `USER_ID` int(11) DEFAULT NULL,
+  `ROLE_ID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='用户角色关联表';
