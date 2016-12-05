@@ -25,6 +25,7 @@ import java.util.Map;
  * Created by Faith on 2016/12/1.
  */
 @Controller
+@RequestMapping("/web")
 public class ShiroController {
     private static final Logger logger = LoggerFactory.getLogger(ShiroController.class);
 

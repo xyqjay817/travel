@@ -18,4 +18,6 @@ public class User extends Po{
     private String userName;
     @FieldName(name = "PASSWORD")
     private String password;
+    @FieldName(name = "AVAILABLE")
+    private String  available;
 }

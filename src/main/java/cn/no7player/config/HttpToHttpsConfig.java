@@ -24,7 +24,7 @@ public class HttpToHttpsConfig {
                 SecurityConstraint securityConstraint = new SecurityConstraint();
                 securityConstraint.setUserConstraint("CONFIDENTIAL");
                 SecurityCollection collection = new SecurityCollection();
-                collection.addPattern("/*");
+                collection.addPattern("/web/*");
                 securityConstraint.addCollection(collection);
                 context.addConstraint(securityConstraint);
             }

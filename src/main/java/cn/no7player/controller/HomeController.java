@@ -1,19 +1,19 @@
 package cn.no7player.controller;
 
-import cn.no7player.model.User;
 import cn.no7player.service.UserService;
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
+import cn.no7player.webSocket.MyWebSocket;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 @Controller
-public class HelloController   {
+@RequestMapping("/web")
+public class HomeController {
 
 
     @Resource(name = "userService")
@@ -22,12 +22,9 @@ public class HelloController   {
 
     @RequestMapping("/home")
     @ResponseBody
-    public String greeting(HttpServletRequest request) {
-//
-//        User user=new User();
-//        user.setPassword("123456");
-//        user.setUserName("dengrijin");
-//        userService.add(user);
-        return "index";
+    public String greeting(HttpServletRequest request) throws IOException {
+        MyWebSocket.sendInfo("你大爺");
+        return "home";
     }
+
 }
