@@ -3,7 +3,7 @@
 #   生产环境：java -jar my-spring-boot.jar --spring.profiles.active: prod
 spring: 
   profiles: 
-    active: dev
+    active: prod
     spring :
       freemarker:
         allow-request-override: false
@@ -36,6 +36,11 @@ spring:
 # 测试环境配置
 spring: 
     profiles:  test
+    datasource:
+       url: jdbc:mysql://192.168.10.48:3306/faith?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
+       username: root
+       password: xyqjay
+       driver-class-name: com.mysql.jdbc.Driver
 
 ---
 # 生产环境配置

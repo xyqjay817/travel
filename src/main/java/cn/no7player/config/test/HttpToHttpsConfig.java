@@ -1,4 +1,4 @@
-package cn.no7player.config;
+package cn.no7player.config.test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Profile;
  * Created by dengrijin on 2016/12/4.
  */
 @Configuration
-//@Profile("dev")
+@Profile("test")
 public class HttpToHttpsConfig {
 
     @Bean
@@ -37,9 +37,9 @@ public class HttpToHttpsConfig {
     public Connector httpConnector(){//2
         Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         connector.setScheme("http");
-        connector.setPort(8080);
+        connector.setPort(9080);
         connector.setSecure(false);
-        connector.setRedirectPort(8443);
+        connector.setRedirectPort(9443);
         return connector;
     }
 }
