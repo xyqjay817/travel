@@ -20,4 +20,11 @@ public class UserController {
     public String greeting(HttpServletRequest request) throws IOException {
         return "hello";
     }
+
+
+    @RequestMapping("/index")
+    public String index(HttpServletRequest request) throws IOException {
+        request.setAttribute("str","ddd");
+        return "index";
+    }
 }

@@ -1,8 +1,5 @@
 var require = {
     paths: {
-        'zepto': '/js/lib/zepto/zepto.amd.min',
-        'sm': '/js/lib/sm/sm&sm-extend.amd.min',
-        'smConfig': '/js/common/smConfig'
     },
     shim: {
         'sm': {

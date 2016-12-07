@@ -3,7 +3,7 @@
 #   生产环境：java -jar my-spring-boot.jar --spring.profiles.active: prod
 spring: 
   profiles: 
-    active: prod
+    active: dev
     spring :
       freemarker:
         allow-request-override: false
@@ -32,6 +32,9 @@ spring:
        username: root
        password: xyqjay
        driver-class-name: com.mysql.jdbc.Driver
+portConfig:
+    httpPort: 8080
+    httpsPort: 8443
 ---
 # 测试环境配置
 spring: 
@@ -41,7 +44,9 @@ spring:
        username: root
        password: xyqjay
        driver-class-name: com.mysql.jdbc.Driver
-
+portConfig:
+    httpPort: 8080
+    httpsPort: 8443
 ---
 # 生产环境配置
 spring: 
@@ -51,3 +56,6 @@ spring:
        username: root
        password: xyqjay
        driver-class-name: com.mysql.jdbc.Driver
+portConfig:
+    httpPort: 80
+    httpsPort: 443
