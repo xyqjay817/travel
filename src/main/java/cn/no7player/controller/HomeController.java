@@ -27,4 +27,10 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping("/websocket")
+    public String websocket(HttpServletRequest request) throws IOException {
+        MyWebSocket.sendInfo("你大爺");
+        return "websocket";
+    }
+
 }
