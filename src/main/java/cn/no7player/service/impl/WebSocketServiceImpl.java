@@ -47,4 +47,11 @@ public class WebSocketServiceImpl implements WebSocketService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void pushMessage(String message) throws IOException {
+        for(String sessionId:sessionMap.keySet()){
+            sessionMap.get(sessionId).getBasicRemote().sendText(message);
+        }
+    }
 }

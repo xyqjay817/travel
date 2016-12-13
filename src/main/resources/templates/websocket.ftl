@@ -35,7 +35,10 @@
     function send1() {
         var text1 = $('#text1').val();
         console.log(text1);
-        s1.send(text1);
+        var data={
+            msg:text1
+        }
+        s1.send(JSON.stringify(data));
     }
     function quit() {
         s1.close();
