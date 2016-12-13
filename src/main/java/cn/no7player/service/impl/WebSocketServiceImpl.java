@@ -1,17 +1,28 @@
 package cn.no7player.service.impl;
 
 import cn.no7player.service.WebSocketService;
+import org.springframework.stereotype.Service;
 
 import javax.websocket.Session;
+import javax.websocket.server.PathParam;
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Faith on 2016/12/8.
  */
+@Service("webSocketService")
 public class WebSocketServiceImpl implements WebSocketService {
 
-    private static Map<String,Session>sessionMap;
+
+
+    //websocket 是多线程，会话存放集合 务必使用线程安全的集合
+    private static Map<String,Session>sessionMap=new ConcurrentHashMap<>();
+
+
+
+
 
     @Override
     public void newUserJoin(Session session) {
